@@ -1,0 +1,44 @@
+{
+  "name": "dataassetsvis-userstudy",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
+    "@antv/g6": "^4.6.4",
+    "ant-design-vue": "^2.2.8",
+    "axios": "^0.26.1",
+    "d3": "^6.7.0",
+    "d3-quadtree": "^3.0.1",
+    "dagre": "^0.8.5",
+    "lodash": "^4.17.21",
+    "robust-point-in-polygon": "^1.0.3",
+    "ss-stack": "^1.0.8",
+    "v-contextmenu": "^3.0.0",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.13"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.1.0",
+    "@types/dagre": "^0.7.47",
+    "@types/lodash": "^4.14.180",
+    "@types/node": "^17.0.21",
+    "@types/robust-point-in-polygon": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "path": "^0.12.7",
+    "typescript": "^4.6.2",
+    "vite": "^2.8.0",
+    "vite-plugin-components": "^0.13.3",
+    "vue-tsc": "^0.29.8"
+  }
+}

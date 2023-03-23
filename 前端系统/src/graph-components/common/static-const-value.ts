@@ -1,0 +1,598 @@
+// 普通节点信息配置
+const nodeInfoConfig = {
+  'dlf.Job': {
+    value: 'dlf.Job', // 节点类型名称
+    color: '#AAAAAA', // 节点颜色编码
+    textLabel: 'dlf.Job', // 节点文本标签
+    icon: 'g-job', // 节点 icon 映射
+    iconLable: 'J', // 节点 icon 简称
+    iconWeight: 11, // 权重排序等级
+    backgroundColor: '#AAAAAA', // 节点背景图光圈颜色
+    chineseName: '作业', // 中文名称
+    // 右键扩展菜单列表
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      其他关系: 'OTHERS',
+      下游父子关系: 'NEXT_PARENT_CHILD',
+    },
+  },
+  'business.LogicEntity': {
+    value: 'business.LogicEntity',
+    color: '#0099CC',
+    textLabel: 'business.LogicEntity',
+    icon: 'g-logic-entity',
+    iconLable: 'L',
+    iconWeight: 3,
+    backgroundColor: '#0099CC',
+    chineseName: '逻辑实体',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+      逻辑物理关系: 'LOGICAL_PHYSICAL',
+      上游父子关系: 'LAST_PARENT_CHILD',
+      其他关系: 'OTHERS',
+      下游父子关系: 'NEXT_PARENT_CHILD',
+    },
+  },
+  'dli.Table': {
+    value: 'dli.Table',
+    color: '#FF9900',
+    textLabel: 'dli.Table',
+    icon: 'g-table',
+    iconLable: 'T',
+    iconWeight: 1,
+    backgroundColor: '#FF9900',
+    chineseName: '数据表',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+      数据流关系: 'DATA_FLOW',
+      主外键关系: 'PK_FK',
+      上游父子关系: 'LAST_PARENT_CHILD',
+      其他关系: 'OTHERS',
+      逻辑物理关系: 'LOGICAL_PHYSICAL',
+      下游父子关系: 'NEXT_PARENT_CHILD',
+    },
+  },
+  'business.LogicEntityField': {
+    value: 'business.LogicEntityField',
+    color: '#99CCFF',
+    textLabel: 'business.LogicEntityField',
+    icon: 'g-logic-entity-field',
+    iconLable: 's',
+    iconWeight: 4,
+    backgroundColor: '#99CCFF',
+    chineseName: '业务属性',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+      上游父子关系: 'LAST_PARENT_CHILD',
+      其他关系: 'OTHERS',
+      逻辑物理关系: 'LOGICAL_PHYSICAL',
+    },
+  },
+  'dli.View': {
+    value: 'dli.View',
+    color: '#777777',
+    textLabel: 'dli.View',
+    icon: 'g-view',
+    iconLable: 'V',
+    iconWeight: 10,
+    backgroundColor: '#777777',
+    chineseName: '概览',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+    },
+  },
+  'process.columnLineage': {
+    value: 'process.columnLineage',
+    color: '#99CC99',
+    textLabel: 'process.columnLineage',
+    icon: 'g-column-lineage',
+    iconLable: 'c',
+    iconWeight: 9,
+    backgroundColor: '#99CC99',
+    chineseName: '列血缘',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+      数据流关系: 'DATA_FLOW',
+      上游父子关系: 'LAST_PARENT_CHILD',
+    },
+  },
+  'dlf.dli_sql': {
+    value: 'dlf.dli_sql',
+    color: '#339933',
+    textLabel: 'dlf.dli_sql',
+    icon: 'g-jobnode',
+    iconLable: 'j',
+    iconWeight: 5,
+    backgroundColor: '#339933',
+    chineseName: '作业节点',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+    },
+  },
+  'dlf.JobNode': {
+    value: 'dlf.JobNode',
+    color: '#339933',
+    textLabel: 'dlf.JobNode',
+    icon: 'g-sql',
+    iconLable: 'j',
+    iconWeight: 5,
+    backgroundColor: '#339933',
+    chineseName: '作业节点',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+    },
+  },
+  'dii.InsightNode': {
+    value: 'dii.InsightNode',
+    color: '#C2E5A0',
+    textLabel: 'dii.InsightNode',
+    icon: 'g-insight-node',
+    iconLable: 'I',
+    iconWeight: 8,
+    backgroundColor: '#C2E5A0',
+    chineseName: '见解节点',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+    },
+  },
+  'business.Category': {
+    value: 'business.Category',
+    color: '#999999',
+    textLabel: 'business.Category',
+    icon: 'g-category',
+    iconLable: 'm',
+    iconWeight: 13,
+    backgroundColor: '#999999',
+    chineseName: '目录',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      其他关系: 'OTHERS',
+      上游父子关系: 'LAST_PARENT_CHILD',
+      下游父子关系: 'NEXT_PARENT_CHILD',
+    },
+  },
+  'dlf.sub_node': {
+    value: 'dlf.sub_node',
+    color: '#339933',
+    textLabel: 'dlf.sub_node',
+    icon: 'g-node',
+    iconLable: 'j',
+    iconWeight: 6,
+    backgroundColor: '#339933',
+    chineseName: '作业节点',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+      数据流关系: 'DATA_FLOW',
+      上游父子关系: 'LAST_PARENT_CHILD',
+      其他关系: 'OTHERS',
+      下游父子关系: 'NEXT_PARENT_CHILD',
+    },
+  },
+  'dli.Database': {
+    value: 'dli.Database',
+    color: '#888888',
+    textLabel: 'dli.Database',
+    icon: 'g-database',
+    iconLable: 'd',
+    iconWeight: 12,
+    backgroundColor: '#888888',
+    chineseName: '数据库',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      其他关系: 'OTHERS',
+      下游父子关系: 'NEXT_PARENT_CHILD',
+    },
+  },
+  'business.Insight': {
+    value: 'business.Insight',
+    color: '#FF6666',
+    textLabel: 'business.Insight',
+    icon: 'g-insight',
+    iconLable: 'i',
+    iconWeight: 7,
+    backgroundColor: '#FF6666',
+    chineseName: '见解',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+    },
+  },
+  'dli.Column': {
+    value: 'dli.Column',
+    color: '#FFCC33',
+    textLabel: 'dli.Column',
+    icon: 'g-column',
+    iconLable: 'z',
+    iconWeight: 2,
+    backgroundColor: '#FFCC33',
+    chineseName: '字段',
+    expandRelations: {
+      获取推荐拓展关系列表: 'getRecommendExpandNodes',
+      所有: 'ALL',
+      推荐关系: 'RECOMMEND',
+      上游父子关系: 'LAST_PARENT_CHILD',
+      其他关系: 'OTHERS',
+      逻辑物理关系: 'LOGICAL_PHYSICAL',
+      主外键关系: 'PK_FK',
+    },
+  },
+};
+
+// 超点信息配置
+const abstractNodeInfoConfig = {
+  // 下面的是对于边缘簇结构的虚拟超点定义（即不含簇中心的）
+  'abstract-cluster-dlf.Job': {
+    value: 'abstract-cluster-dlf.Job',
+    color: '#AAAAAA',
+    textLabel: 'abstract-cluster-dlf.Job',
+    icon: 'cluster-job-exclude-center',
+    iconWeight: 11 + 20,
+    backgroundColor: '#AAAAAA',
+  },
+  'abstract-cluster-business.LogicEntity': {
+    value: 'abstract-cluster-business.LogicEntity',
+    color: '#0099CC',
+    textLabel: 'abstract-cluster-business.LogicEntity',
+    icon: 'cluster-logic-entity-exclude-center',
+    iconWeight: 3 + 20,
+    backgroundColor: '#0099CC',
+  },
+  'abstract-cluster-dli.Table': {
+    value: 'abstract-cluster-dli.Table',
+    color: '#FF9900',
+    textLabel: 'abstract-cluster-dli.Table',
+    icon: 'cluster-table-exclude-center',
+    iconWeight: 1 + 20,
+    backgroundColor: '#FF9900',
+  },
+  'abstract-cluster-business.LogicEntityField': {
+    value: 'abstract-cluster-business.LogicEntityField',
+    color: '#99CCFF',
+    textLabel: 'abstract-cluster-business.LogicEntityField',
+    icon: 'cluster-logic-entity-field-exclude-center',
+    iconWeight: 4 + 20,
+    backgroundColor: '#99CCFF',
+  },
+  'abstract-cluster-dli.View': {
+    value: 'abstract-cluster-dli.View',
+    color: '#777777',
+    textLabel: 'abstract-cluster-dli.View',
+    icon: 'cluster-view-exclude-center',
+    iconWeight: 10 + 20,
+    backgroundColor: '#777777',
+  },
+  'abstract-cluster-process.columnLineage': {
+    value: 'abstract-cluster-process.columnLineage',
+    color: '#99CC99',
+    textLabel: 'abstract-cluster-process.columnLineage',
+    icon: 'cluster-column-lineage-exclude-center',
+    iconWeight: 9 + 20,
+    backgroundColor: '#99CC99',
+  },
+  'abstract-cluster-dlf.dli_sql': {
+    value: 'abstract-cluster-dlf.dli_sql',
+    color: '#339933',
+    textLabel: 'abstract-cluster-dlf.dli_sql',
+    icon: 'cluster-sql-exclude-center',
+    iconWeight: 5 + 20,
+    backgroundColor: '#339933',
+  },
+  'abstract-cluster-dlf.JobNode': {
+    value: 'abstract-cluster-dlf.JobNode',
+    color: '#339933',
+    textLabel: 'abstract-cluster-dlf.JobNode',
+    icon: 'cluster-jobnode-exclude-center',
+    iconWeight: 5 + 20,
+    backgroundColor: '#339933',
+  },
+  'abstract-cluster-dii.InsightNode': {
+    value: 'abstract-cluster-dii.InsightNode',
+    color: '#C2E5A0',
+    textLabel: 'abstract-cluster-dii.InsightNode',
+    icon: 'cluster-insight-node-exclude-center',
+    iconWeight: 8 + 20,
+    backgroundColor: '#C2E5A0',
+  },
+  'abstract-cluster-business.Category': {
+    value: 'abstract-cluster-business.Category',
+    color: '#999999',
+    textLabel: 'abstract-cluster-business.Category',
+    icon: 'cluster-category-exclude-center',
+    iconWeight: 13 + 20,
+    backgroundColor: '#999999',
+  },
+  'abstract-cluster-dlf.sub_node': {
+    value: 'abstract-cluster-dlf.sub_node',
+    color: '#339933',
+    textLabel: 'abstract-cluster-dlf.sub_node',
+    icon: 'cluster-node-exclude-center',
+    iconWeight: 6 + 20,
+    backgroundColor: '#339933',
+  },
+  'abstract-cluster-dli.Database': {
+    value: 'abstract-cluster-dli.Database',
+    color: '#888888',
+    textLabel: 'abstract-cluster-dli.Database',
+    icon: 'cluster-database-exclude-center',
+    iconWeight: 12 + 20,
+    backgroundColor: '#888888',
+  },
+  'abstract-cluster-business.Insight': {
+    value: 'abstract-cluster-business.Insight',
+    color: '#FF6666',
+    textLabel: 'abstract-cluster-business.Insight',
+    icon: 'cluster-insight-exclude-center',
+    iconWeight: 7 + 20,
+    backgroundColor: '#FF6666',
+  },
+  'abstract-cluster-dli.Column': {
+    value: 'abstract-cluster-dli.Column',
+    color: '#FFCC33',
+    textLabel: 'abstract-cluster-dli.Column',
+    icon: 'cluster-column-exclude-center',
+    iconWeight: 2 + 20,
+    backgroundColor: '#FFCC33',
+  },
+
+  // 下面的是对于簇结构的虚拟超点定义（即含簇中心的）
+  'abstract-dlf.Job-include-center': {
+    value: 'abstract-dlf.Job-include-center',
+    color: '#AAAAAA',
+    textLabel: 'abstract-dlf.Job',
+    icon: 'cluster-job-include-center',
+    iconWeight: 11 + 40,
+    backgroundColor: '#AAAAAA',
+  },
+  'abstract-business.LogicEntity-include-center': {
+    value: 'abstract-business.LogicEntity-include-center',
+    color: '#0099CC',
+    textLabel: 'abstract-business.LogicEntity',
+    icon: 'cluster-logic-entity-include-center',
+    iconWeight: 3 + 40,
+    backgroundColor: '#0099CC',
+  },
+  'abstract-dli.Table-include-center': {
+    value: 'abstract-dli.Table-include-center',
+    color: '#2C41FF',
+    textLabel: 'abstract-dli.Table',
+    icon: 'cluster-table-include-center',
+    iconWeight: 1 + 40,
+    backgroundColor: '#2C41FF',
+  },
+  'abstract-business.LogicEntityField-include-center': {
+    value: 'abstract-business.LogicEntityField-include-center',
+    color: '#99CCFF',
+    textLabel: 'abstract-business.LogicEntityField',
+    icon: 'cluster-logic-entity-field-include-center',
+    iconWeight: 4 + 40,
+    backgroundColor: '#99CCFF',
+  },
+  'abstract-dli.View-include-center': {
+    value: 'abstract-dli.View-include-center',
+    color: '#777777',
+    textLabel: 'abstract-dli.View',
+    icon: 'cluster-view-include-center',
+    iconWeight: 10 + 40,
+    backgroundColor: '#777777',
+  },
+  'abstract-process.columnLineage-include-center': {
+    value: 'abstract-process.columnLineage-include-center',
+    color: '#99CC99',
+    textLabel: 'abstract-process.columnLineage',
+    icon: 'cluster-column-lineage-include-center',
+    iconWeight: 9 + 40,
+    backgroundColor: '#99CC99',
+  },
+  'abstract-dlf.dli_sql-include-center': {
+    value: 'abstract-dlf.dli_sql-include-center',
+    color: '#339933',
+    textLabel: 'abstract-dlf.dli_sql',
+    icon: 'cluster-sql-include-center',
+    iconWeight: 5 + 40,
+    backgroundColor: '#339933',
+  },
+  'abstract-dlf.JobNode-include-center': {
+    value: 'abstract-dlf.JobNode-include-center',
+    color: '#339933',
+    textLabel: 'abstract-dlf.JobNode',
+    icon: 'cluster-jobnode-include-center',
+    iconWeight: 5 + 40,
+    backgroundColor: '#339933',
+  },
+  'abstract-dii.InsightNode-include-center': {
+    value: 'abstract-dii.InsightNode-include-center',
+    color: '#C2E5A0',
+    textLabel: 'abstract-dii.InsightNode',
+    icon: 'cluster-insight-node-include-center',
+    iconWeight: 8 + 40,
+    backgroundColor: '#C2E5A0',
+  },
+  'abstract-business.Category-include-center': {
+    value: 'abstract-business.Category-include-center',
+    color: '#999999',
+    textLabel: 'abstract-business.Category',
+    icon: 'cluster-category-include-center',
+    iconWeight: 13 + 40,
+    backgroundColor: '#999999',
+  },
+  'abstract-dlf.sub_node-include-center': {
+    value: 'abstract-dlf.sub_node-include-center',
+    color: '#339933',
+    textLabel: 'abstract-dlf.sub_node',
+    icon: 'cluster-node-include-center',
+    iconWeight: 6 + 40,
+    backgroundColor: '#339933',
+  },
+  'abstract-dli.Database-include-center': {
+    value: 'abstract-dli.Database-include-center',
+    color: '#888888',
+    textLabel: 'abstract-dli.Database',
+    icon: 'cluster-database-include-center',
+    iconWeight: 12 + 40,
+    backgroundColor: '#888888',
+  },
+  'abstract-business.Insight-include-center': {
+    value: 'abstract-business.Insight-include-center',
+    color: '#FF6666',
+    textLabel: 'abstract-business.Insight',
+    icon: 'cluster-insight-include-center',
+    iconWeight: 7 + 40,
+    backgroundColor: '#FF6666',
+  },
+  'abstract-dli.Column-include-center': {
+    value: 'abstract-dli.Column-include-center',
+    color: '#FFCC33',
+    textLabel: 'abstract-dli.Column',
+    icon: 'cluster-column-include-center',
+    iconWeight: 2 + 40,
+    backgroundColor: '#FFCC33',
+  },
+
+  // 下面的是对单级多重桥结构的超点定义(目前只有部分作业数据流存在这种关系)
+  'abstract-single-bridge-dli.Table': {
+    value: 'abstract-single-bridge-dli.Table',
+    color: '#FF9900',
+    textLabel: '',
+    icon: 'single-bridge-table',
+    iconWeight: 1 + 60,
+    backgroundColor: '#FF9900',
+  },
+  'abstract-single-bridge-dlf.Job': {
+    value: 'abstract-single-bridge-dlf.Job',
+    color: '#AAAAAA',
+    textLabel: '',
+    icon: 'single-bridge-job',
+    iconWeight: 11 + 60,
+    backgroundColor: '#AAAAAA',
+  },
+  'abstract-single-bridge-dlf.dli_sql': {
+    value: 'abstract-single-bridge-dlf.dli_sql',
+    color: '#339933',
+    textLabel: '',
+    icon: 'single-bridge-sql',
+    iconWeight: 5 + 60,
+    backgroundColor: '#339933',
+  },
+  'abstract-single-bridge-dlf.JobNode': {
+    value: 'abstract-single-bridge-dlf.JobNode',
+    color: '#339933',
+    textLabel: '',
+    icon: 'single-bridge-jobnode',
+    iconWeight: 5 + 60,
+    backgroundColor: '#339933',
+  },
+  'abstract-single-bridge-dlf.sub_node': {
+    value: 'abstract-single-bridge-dlf.sub_node',
+    color: '#339933',
+    textLabel: '',
+    icon: 'single-bridge-node',
+    iconWeight: 6 + 60,
+    backgroundColor: '#339933',
+  },
+  'abstract-single-bridge-dli.Column': {
+    value: 'abstract-single-bridge-dli.Column',
+    color: '#2C41FF',
+    textLabel: 'abstract-single-bridge-dli.Column',
+    icon: 'cluster-column-include-center',
+    backgroundColor: '#2C41FF',
+  },
+
+  // 下面的是对二级多重桥结构的超点定义
+  'abstract-double-bridge-business.LogicEntityField_dli.Column': {
+    value: 'abstract-double-bridge-business.LogicEntityField_dli.Column',
+    color: '#F66F6A',
+    textLabel: '',
+    icon: 'double-bridge-logic-entity-field_column',
+    iconWeight: 6 + 80,
+    backgroundColor: '#F66F6A',
+  },
+};
+
+// 连边信息配置
+const edgeInfoConfig = {
+  PARENT_CHILD: {
+    value: 'PARENT_CHILD',
+    color: '#888888',
+    chineseName: '父子关系',
+    expandRelations: [],
+  },
+  LOGICAL_PHYSICAL: {
+    value: 'LOGICAL_PHYSICAL',
+    color: '#888888',
+    chineseName: '逻辑物理关系',
+    expandRelations: [],
+  },
+  DATA_FLOW: {
+    value: 'DATA_FLOW',
+    color: '#888888',
+    chineseName: '数据流关系',
+    expandRelations: [],
+  },
+  PK_FK: {
+    value: 'PK_FK',
+    color: '#888888',
+    chineseName: '主外键关系',
+    expandRelations: [],
+  },
+};
+
+// 虚拟层级结构背景颜色
+const virtualColor = {
+  level1: '#EEEEEE',
+  level2: '#FFFFFF00',
+  level3: '#FFFFFF00',
+  level4: '#FFFFFF00',
+};
+
+// 扇形聚类相关配置项
+const sectorCfg = {
+  // 层级凸包背景颜色
+  sectorHullFill: {
+    L1: '#99CCFFA0',
+    L2: '#FFCC33A0',
+    L3: '#99CC99A0',
+    others: '#CCCCCCA0',
+  },
+  sectorLevelLabel: 'categoryLevel', // 扇形聚类的层级标识名
+  sectorRootTypeName: 'business.Category', // 扇形聚类的类型名
+  sectorParentLabel: 'parentCategory', // 扇形聚类层级关系标识名（父级）
+  sectorChildrenLabel: 'childrenCategory', // 扇形聚类层级关系标识名（子级）
+};
+
+// 其他的全局配置项
+const globalCfg = {
+  abstractHullFill: '#CCCCCCA0', // 超点展开后的凸包背景颜色
+  abstractLogicEntityfieldTypeName:
+    'abstract-double-bridge-business.LogicEntityField_dli.Column', // 业务属性与字段一对一关联的超点类型名称
+};
+
+export {
+  nodeInfoConfig,
+  abstractNodeInfoConfig,
+  edgeInfoConfig,
+  virtualColor,
+  sectorCfg,
+  globalCfg,
+};
