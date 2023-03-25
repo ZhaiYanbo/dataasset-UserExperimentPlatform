@@ -19,7 +19,7 @@ def register_user(request):
     sex = data.get('sex')
     major = data.get('major')
     telephone = data.get('major')
-
+    print("接收到消息：",data,name,sex,major,telephone)
     # 查询信息
     record = Record.objects.filter(name=name).first()
     if (not record):
@@ -31,6 +31,7 @@ def register_user(request):
         record.major = major
         record.telephone = telephone
 
+    print("record:",record)
     record.save()
     return JsonResponse({'res': 'success', 'code': 200}, safe=False)
 
@@ -44,7 +45,7 @@ def submit_ans(request):
     """
     # 获取题目信息以及答案
     name, ans = read_answer(request)
-
+    print("接收到消息：",name,ans)
     # 更新记录的值
     record = Record.objects.filter(name=name).first()
     for key, value in ans.items():

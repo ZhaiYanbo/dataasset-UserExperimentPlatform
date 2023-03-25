@@ -28,8 +28,8 @@ export default defineConfig({
       // 数据资产图谱请求
       '/api': {
         // target: 'http://121.5.128.51:8888',
-        // target: 'http://127.0.0.1:8888',
-        target: 'http://192.168.1.118:8931',
+        target: 'http://127.0.0.1:8888',
+        // target: 'http://192.168.1.118:8931',
         changeOrigin: true,
         ws: true, // websocket支持
         secure: false,

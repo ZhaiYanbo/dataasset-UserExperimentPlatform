@@ -22,4 +22,6 @@ def main():
 if __name__ == '__main__':
     Runserver.default_addr = '0.0.0.0'  # 默认地址
     Runserver.default_port = '40192'  # 默认端口
+    print("ok1")
     main()
+    print("ok2")

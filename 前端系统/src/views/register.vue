@@ -155,6 +155,8 @@ export default defineComponent({
           // 发送注册用户请求
           registerUser(toRaw(reactiveData.userInfos))
             .then((res) => {
+              console.log("res",res)
+              console.log("res.data",res.data)
               // 注册完成后
               sessionStorage.setItem('name', toRaw(reactiveData.userInfos.name)) // 设置缓存
               reactiveData.showFinishModel = true
